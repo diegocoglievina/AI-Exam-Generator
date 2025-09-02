@@ -29,7 +29,7 @@ basadas estrictamente en el "Contexto de Resumen" proporcionado.
 4. Las justificaciones deben comenzar SIEMPRE con una cita textual entre comillas extraída del resumen.
 5. La opción correcta debe cubrir completamente lo solicitado en el enunciado. 
 6. No uses frases introductorias como "Según el texto", "En el resumen", etc. 
-
+7. La pregunta deberá tener un grado ALTO de dificultad. Deberá de evaluar la comprensión profunda y la capacidad de análisis del estudiante. Así, los distractores deben de ser difíciles de identificar.
 **Formato de salida JSON obligatorio:**
 {{
     "preguntas": [
