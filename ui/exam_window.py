@@ -1,4 +1,6 @@
-from PyQt6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QGroupBox, 
+import random
+
+from PyQt6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QGroupBox,
                              QRadioButton, QButtonGroup, QPushButton, QMessageBox)
 from PyQt6.QtGui import QFont
 
@@ -7,6 +9,7 @@ class ExamWindow(QDialog):
     def __init__(self, questions, parent=None):
         super().__init__(parent)
         self.questions = questions
+        self._shuffle_options()
         self.user_answers = {}
         self.current_question_index = 0
         self.setWindowTitle("Examen Interactivo")
@@ -51,6 +54,15 @@ class ExamWindow(QDialog):
         nav_layout.addStretch()
         nav_layout.addWidget(self.finish_button)
         self.layout.addLayout(nav_layout)
+
+    def _shuffle_options(self):
+        for question in self.questions:
+            options = question.get("opciones")
+            if not options or len(options) < 2:
+                continue
+            shuffled = list(options)
+            random.shuffle(shuffled)
+            question["opciones"] = shuffled
         
     def load_question(self):
         checked_button = self.button_group.checkedButton()
